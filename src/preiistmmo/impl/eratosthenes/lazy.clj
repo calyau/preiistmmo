@@ -4,7 +4,8 @@
   "Generates an lazy sequence of prime numbers, gaining a modicum of
   efficiency by tracking known factors of numbers in a hash-map.
 
-  Modified from:
+  Please note: this is not original work! This code is a modified form
+  of what was found here:
    * https://stackoverflow.com/a/7625207
    * https://web.archive.org/web/20150710134640/http://diditwith.net/2009/01/20/YAPESProblemSevenPart2.aspx"
   []
