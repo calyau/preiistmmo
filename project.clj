@@ -1,5 +1,5 @@
 (defproject preiistmmo "0.1.0-SNAPSHOT"
-  :description "FIXME: write description"
+  :description "Pondering scalability via primes ..."
   :url "https://github.com/calyau/preiistmmo"
   :license {
     :name "Apache License, Version 2.0"
