@@ -66,6 +66,7 @@
     "build" ["do"
       ["clean"]
       ["check-vers"]
+      ["lint"]
       ["ltest" ":unit"]
       ["clean"]
       ["ubercompile"]
