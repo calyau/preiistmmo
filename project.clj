@@ -11,11 +11,11 @@
     :name "Apache License, Version 2.0"
     :url "http://www.apache.org/licenses/LICENSE-2.0"}
   :dependencies [
-    [org.clojure/clojure "1.10.0-RC2"]]
+    [org.clojure/clojure "1.10.0-RC2"]
+    [org.clojure/tools.cli "0.4.1"]]
   :repl-options {
     :init-ns preiistmmo.core
     :prompt ~get-prompt}
-  :main preiistmmo.core
   :aot [preiistmmo.core]
   :profiles {
     :ubercompile {
@@ -40,7 +40,9 @@
         :default (complement :system)}}
     :benchmarks {
       :main preiistmmo.bench
-      :aot [preiistmmo.bench]}}
+      :aot [preiistmmo.bench]}
+    :primes {
+      :main preiistmmo.core}}
   :aliases {
     ;; Dev & Testing Aliases
     "repl" ["do"
@@ -70,4 +72,6 @@
       ["ltest" ":unit"]
       ["clean"]
       ["ubercompile"]
-      ["uberjar"]]})
+      ["uberjar"]]
+    ;; CLI
+    "primes" ["with-profile" "+primes" "trampoline"]})
