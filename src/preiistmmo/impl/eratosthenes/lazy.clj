@@ -34,4 +34,4 @@
 (def behaviour {
   :n-primes n-primes})
 
-(def create #(->EratosthenesSieve))
+(def create ->EratosthenesSieve)

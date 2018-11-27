@@ -41,4 +41,4 @@
 (def behaviour {
   :n-primes n-primes})
 
-(def create #(->SundaramSieve))
+(def create ->SundaramSieve)

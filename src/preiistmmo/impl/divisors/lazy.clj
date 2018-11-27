@@ -13,4 +13,4 @@
 (def behaviour {
   :n-primes n-primes})
 
-(def create #(->PrimeDivisorsTrial))
+(def create ->PrimeDivisorsTrial)
