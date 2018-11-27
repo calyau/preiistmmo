@@ -37,7 +37,10 @@
         :unit #(not (or (:integration %) (:system %)))
         :integration :integration
         :system :system
-        :default (complement :system)}}}
+        :default (complement :system)}}
+    :benchmarks {
+      :main preiistmmo.bench
+      :aot [preiistmmo.bench]}}
   :aliases {
     ;; Dev & Testing Aliases
     "repl" ["do"
@@ -52,6 +55,7 @@
       ["check-jars"]
       ["check-vers"]]
     "ltest" ["with-profile" "+test" "ltest"]
+    "benchmarks" ["with-profile" "+benchmarks" "run"]
     ;; Linting
     "kibit" ["with-profile" "+lint" "kibit"]
     "eastwood" ["with-profile" "+lint" "eastwood" "{:namespaces [:source-paths]}"]

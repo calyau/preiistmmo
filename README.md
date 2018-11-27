@@ -47,15 +47,42 @@ and a primality trial by divisors implementation:
 (2 3 5 7 11 13 17 19 23 29 31 37 41)
 ```
 
+## Benchmarks
+
+Of a sort, anyway:
+
+```
+$ lein benchmarks
+```
+```
+Running n-primes for :divisors implementation ...
+10 primes: "Elapsed time: 1.41252 msecs"
+100 primes: "Elapsed time: 1.922843 msecs"
+1000 primes: "Elapsed time: 8.307988 msecs"
+10000 primes: "Elapsed time: 233.71016 msecs"
+100000 primes: "Elapsed time: 6136.338203 msecs"
+
+Running n-primes for :eratosthenes implementation ...
+10 primes: "Elapsed time: 1.661216 msecs"
+100 primes: "Elapsed time: 1.822298 msecs"
+1000 primes: "Elapsed time: 14.686621 msecs"
+10000 primes: "Elapsed time: 240.921639 msecs"
+100000 primes: "Elapsed time: 4363.927017 msecs"
+
+Running n-primes for :sundaram implementation ...
+10 primes: "Elapsed time: 4.086518 msecs"
+100 primes: "Elapsed time: 3.433624 msecs"
+1000 primes: "Elapsed time: 25.422443 msecs"
+10000 primes: "Elapsed time: 1165.294828 msecs"
+100000 primes:"Elapsed time: 166559.860863 msecs"
+```
+
 
 ## License
 
 Copyright © 2018, Duncan McGreggor
 
 Apache License, Version 2.0
-
-
-
 
 
 <!-- Named page links below: /-->
