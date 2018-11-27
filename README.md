@@ -12,7 +12,7 @@
 [![][logo]][logo-large]
 
 
-## Usage
+## API Usage
 
 Generate the first-n primes using a Sieve of Sundaram implementation:
 
@@ -44,6 +44,15 @@ and a primality trial by divisors implementation:
 ```
 (2 3 5 7 11 13 17 19 23 29 31 37 41)
 ```
+
+Note that of the three, the `:divisors` algorithm has the ability to deliver
+sequences of prime numbers at any starting point. This makes it very convenient
+for spliting work across different compute resources.
+
+
+## Thoughts on Scaling
+
+TBD
 
 ## Benchmarks
 
