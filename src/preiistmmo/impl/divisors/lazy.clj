@@ -17,13 +17,17 @@
   ([this i-max]
     (prime-grid this i-max i-max))
   ([this i-max j-max]
-    (common/prime-grid this n-primes i-max j-max)))
+    (prime-grid this i-max i-max common/default-operation))
+  ([this i-max j-max op]
+    (common/prime-grid this n-primes i-max j-max op)))
 
 (defn print-prime-grid
   ([this i-max]
     (print-prime-grid this i-max i-max))
   ([this i-max j-max]
-    (common/print-prime-grid this n-primes i-max j-max)))
+    (print-prime-grid this i-max i-max common/default-operation))
+  ([this i-max j-max op]
+    (common/print-prime-grid this n-primes i-max j-max op)))
 
 (def behaviour {
   :n-primes n-primes

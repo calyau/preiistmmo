@@ -20,6 +20,11 @@
        (map name)
        (into #{})))
 
+(def supported-operations
+  (->> preiistmmo/operations
+       keys
+       (into #{})))
+
 (def cli-opts
   [["-s" "--start INTEGER" (str "The starting integer (only valid for the "
                         "'divisors' algorithm)")
@@ -31,5 +36,5 @@
                                (vec supported-algorithms))
     :default "divisors"
     :validate [#(contains? supported-algorithms %)
-               (format "Must be one of %s" supported-algorithms)]]
-   ["-h" "--help" "This usage text."]])
+               (format "Must be one of %s" (vec supported-algorithms))]]
+   ["-h" "--help" "This usage text"]])
