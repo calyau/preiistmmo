@@ -12,10 +12,25 @@
 [![][logo]][logo-large]
 
 
-## Usage
+#### Contents
+
+* [Usage](#usage-)
+  * [CLI](#cli-)
+    * From lein
+    * From the .jar file
+  * [API](#api-)
+* [Thoughts on Scaling](#thoughts-on-scaling-)
+  * Algorithm implementation
+  * Single machine
+  * Multiple machines
+* [Benchmarks](#benchmarks-)
+* [License](#license-)
 
 
-### CLI
+## Usage [&#x219F;](#contents)
+
+
+### CLI [&#x219F;](#contents)
 
 There are two entry points for the CLI:
 * `primes` - this just does raw computation of prime numbers using an algorithm
@@ -190,7 +205,7 @@ $ java -jar target/preiistmmo-0.1.0-SNAPSHOT-standalone.jar -m preiistmmo.cli.ta
 ```
 
 
-### API
+### API [&#x219F;](#contents)
 
 Generate the first-n primes using a primality trial by divisors implementation:
 
@@ -260,7 +275,7 @@ Support has been added for grids (e.g., in termainal-based demos):
 ```
 
 
-## Thoughts on Scaling
+## Thoughts on Scaling [&#x219F;](#contents)
 
 Algorithm implementation:
 
@@ -305,7 +320,7 @@ Multiple machines:
    (the effort and complexity, of course, then moves from code to operations).
 
 
-## Benchmarks
+## Benchmarks [&#x219F;](#contents)
 
 Of a sort, anyway:
 
@@ -336,7 +351,7 @@ Running n-primes for :sundaram implementation ...
 ```
 
 
-## License
+## License [&#x219F;](#contents)
 
 Copyright © 2018, Duncan McGreggor
 
