@@ -42,7 +42,7 @@
       :main preiistmmo.bench
       :aot [preiistmmo.bench]}
     :primes {
-      :main preiistmmo.core}}
+      :main preiistmmo.cli.primes}}
   :aliases {
     ;; Dev & Testing Aliases
     "repl" ["do"
