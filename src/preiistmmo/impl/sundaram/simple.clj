@@ -1,6 +1,7 @@
 (ns preiistmmo.impl.sundaram.simple
   (:require
-    [clojure.set :as set]))
+    [clojure.set :as set]
+    [preiistmmo.impl.common :as common]))
 
 (defn desired-primes->n
   "This utility function converts the number of desired primes to the total
@@ -38,7 +39,21 @@
          (take (dec prime-count))
          (concat [2]))))
 
+(defn prime-grid
+  ([this i-max]
+    (prime-grid this i-max i-max))
+  ([this i-max j-max]
+    (common/prime-grid this n-primes i-max j-max)))
+
+(defn print-prime-grid
+  ([this i-max]
+    (print-prime-grid this i-max i-max))
+  ([this i-max j-max]
+    (common/print-prime-grid this n-primes i-max j-max)))
+
 (def behaviour {
-  :n-primes n-primes})
+  :n-primes n-primes
+  :prime-grid prime-grid
+  :print-prime-grid print-prime-grid})
 
 (def create ->SundaramSieve)
