@@ -4,7 +4,7 @@
        ns
        "\u001B[35m]\u001B[33m λ\u001B[m=> "))
 
-(defproject calyau/preiistmmo "0.1.0-SNAPSHOT"
+(defproject calyau/preiistmmo "0.1.0"
   :description "Pondering scalability via primes ..."
   :url "https://github.com/calyau/preiistmmo"
   :license {
