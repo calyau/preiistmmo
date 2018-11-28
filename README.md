@@ -262,7 +262,47 @@ Support has been added for grids (e.g., in termainal-based demos):
 
 ## Thoughts on Scaling
 
-TBD
+Algorithm implementation:
+
+ * This is the domain of "old-school scaling": optimization of algorithms for
+   performance
+ * The `:sundaram` implementation is in sad need of this! The use of `set`
+   and `intersection` is a performance-killer: it would be better to do
+   something like what the copied "Sieve of Eratosthenes" implementation does,
+   using a factors caching table, or some such.
+ * There are other implementations that could be used that would be faster, etc.
+
+Single machine:
+
+ * Moving out of the code and into hardware for performance, one could take
+   better advantage of multiple cores.
+ * Possible refactoring of code applies here, in order to take advantage of
+   parallelizations, e.g., using `pmap` or `pvalues`.
+ * The `:divisors` implementation is nicely primed for this (ugh, sorry about
+   the pun), as you can start the prime generation from any point. This allows
+   for the possibility of some nice batching.
+ * Using infrastructure that can treat vast computational/memory/storage
+   resources as a single machine is also an option, e.g., Mesos. It may be
+   possible to scale well in such scenarious by simply containerizing a fast
+   algorithm and running it in an executor that has access to copious
+   distributed resources.
+
+Multiple machines:
+
+ * This is where things get _really_ interesting ;-)
+ * Using various messaging and/or streaming mechanisms, prime number generation
+   could be batched and then assembled (a la Hadoop/MapReduce). Storm, Flink,
+   Kafka, Onyx, etc., offer interesting possibilities here.
+ * While the above work quite well for embarassingly parallelizable functions,
+   an interesting option becomes available when we think about factorization
+   cache tables and distributed hash tables: this opens up a whole new area for
+   optimizations where compute notes could perform lookups (and updates) on a
+   distributed hash table (lots of implementations to choose from). Depending
+   upon operational setup, database clusters (Cassandra, Redis, Datomic) could
+   also be used to similar effect. For the copied "Sieve of Eratosthenes"
+   implementation, a local in-JVM cache table is already being used, and a move
+   to a DHT should be a fairly straight-forward (potentially minor) refactoring
+   (the effort and complexity, of course, then moves from code to operations).
 
 
 ## Benchmarks
