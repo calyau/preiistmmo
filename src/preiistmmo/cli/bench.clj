@@ -1,4 +1,4 @@
-(ns preiistmmo.bench
+(ns preiistmmo.cli.bench
   (:require
     [preiistmmo.core :as preiistmmo])
   (:gen-class))

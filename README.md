@@ -216,7 +216,7 @@ TBD
 Of a sort, anyway:
 
 ```
-$ lein benchmarks
+$ lein benchmarks run
 ```
 ```
 Running n-primes for :divisors implementation ...

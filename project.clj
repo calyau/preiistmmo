@@ -38,9 +38,8 @@
         :integration :integration
         :system :system
         :default (complement :system)}}
-    :benchmarks {
-      :main preiistmmo.bench
-      :aot [preiistmmo.bench]}
+    :cli-benchmarks {
+      :main preiistmmo.cli.bench}
     :cli-primes {
       :main preiistmmo.cli.primes}
     :cli-table {
@@ -59,7 +58,6 @@
       ["check-jars"]
       ["check-vers"]]
     "ltest" ["with-profile" "+test" "ltest"]
-    "benchmarks" ["with-profile" "+benchmarks" "run"]
     ;; Linting
     "kibit" ["with-profile" "+lint" "kibit"]
     "eastwood" ["with-profile" "+lint" "eastwood" "{:namespaces [:source-paths]}"]
@@ -77,4 +75,5 @@
       ["uberjar"]]
     ;; CLI
     "primes" ["with-profile" "+cli-primes" "trampoline"]
-    "table" ["with-profile" "+cli-table" "trampoline"]})
+    "table" ["with-profile" "+cli-table" "trampoline"]
+    "benchmarks" ["with-profile" "+cli-benchmarks" "trampoline"]})
