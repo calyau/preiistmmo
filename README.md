@@ -81,7 +81,9 @@ $ lein primes run --start 100 --count 20
  (101 103 107 109 113 127 131 137 139 149 151 157 163 167 173 179 181 191 193 197)
 ```
 
-The following examples are for using the CLI to generate prime number multiplication tables.
+The following examples are for using the CLI to generate prime number arithmatic
+tables (by default, these are multiplication tables, but addition, subtraction,
+division, and modulus are also supported).
 
 ```
 $ lein table run --help
