@@ -174,6 +174,7 @@ This is the faster way to run the CLI; options and usage is identical to the
 above, but instead of using `lein primes run`, you will use the following:
 
 ```
+$ lein uberjar
 $ java -jar target/preiistmmo-0.1.0-SNAPSHOT-standalone.jar -m preiistmmo.cli.primes
 ```
 
