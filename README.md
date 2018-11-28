@@ -192,40 +192,72 @@ $ java -jar target/preiistmmo-0.1.0-SNAPSHOT-standalone.jar -m preiistmmo.cli.ta
 
 ### API
 
-Generate the first-n primes using a Sieve of Sundaram implementation:
+Generate the first-n primes using a primality trial by divisors implementation:
 
 ```clj
 (require '[preiistmmo.core :as preiistmmo])
-(def algo (preiistmmo/select-algo :sundaram))
-(preiistmmo/n-primes algo 42)
-```
-```
-(2 3 5 7 11 13 17 19 23 29 31 37 41)
-```
-
-The same can be done for the Sieve of Eratosthenes:
-
-```clj
-(def algo (preiistmmo/select-algo :eratosthenes))
-(preiistmmo/n-primes algo 42)
-```
-```
-(2 3 5 7 11 13 17 19 23 29 31 37 41)
-```
-
-and a primality trial by divisors implementation:
-
-```clj
 (def algo (preiistmmo/select-algo :divisors))
-(preiistmmo/n-primes algo 42)
+(preiistmmo/n-primes algo 29)
 ```
 ```
-(2 3 5 7 11 13 17 19 23 29 31 37 41)
+(2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97 101 103 107 109)
 ```
 
 Note that of the three, the `:divisors` algorithm has the ability to deliver
 sequences of prime numbers at any starting point. This makes it very convenient
 for spliting work across different compute resources.
+
+Changing the alorithm, the same can be done for the other implementations.
+
+Sieve of Eratosthenes:
+
+```clj
+(def algo (preiistmmo/select-algo :eratosthenes))
+(preiistmmo/n-primes algo 29)
+```
+```
+(2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97 101 103 107 109)
+```
+
+Sieve of Sundaram:
+
+```clj
+(def algo (preiistmmo/select-algo :sundaram))
+(preiistmmo/n-primes algo 29)
+```
+```
+(2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97 101 103 107 109)
+
+```
+
+Support has been added for grids (e.g., in termainal-based demos):
+
+```clj
+(require '[clojure.pprint :as pprint])
+(pprint (prime-grid algo 5 7))
+```
+```clj
+{:header ("*" 2 3 5 7 11),
+ :body
+ ({"*" 2, 2 4, 3 6, 5 10, 7 14, 11 22}
+  {"*" 3, 2 6, 3 9, 5 15, 7 21, 11 33}
+  {"*" 5, 2 10, 3 15, 5 25, 7 35, 11 55}
+  {"*" 7, 2 14, 3 21, 5 35, 7 49, 11 77}
+  {"*" 11, 2 22, 3 33, 5 55, 7 77, 11 121})}
+```
+```clj
+(preiistmmo/print-prime-grid algo 5 7)
+```
+```
+|  * |  2 |  3 |  5 |  7 |  11 |
+|----+----+----+----+----+-----|
+|  2 |  4 |  6 | 10 | 14 |  22 |
+|  3 |  6 |  9 | 15 | 21 |  33 |
+|  5 | 10 | 15 | 25 | 35 |  55 |
+|  7 | 14 | 21 | 35 | 49 |  77 |
+| 11 | 22 | 33 | 55 | 77 | 121 |
+:ok
+```
 
 
 ## Thoughts on Scaling
