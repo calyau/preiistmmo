@@ -45,4 +45,7 @@
 
 (defn select-algo
   [^Keyword algo]
-  (or (algo algos) :not-implemented))
+  (let [algo-constructor (algo algos)]
+    (if (nil? algo-constructor)
+      :not-implemented
+      (algo-constructor))))

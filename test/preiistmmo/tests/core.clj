@@ -34,3 +34,7 @@
            (preiistmmo/n-primes algo 1000)))
     (is (= util/first-10000
            (preiistmmo/n-primes algo 10000)))))
+
+(deftest bad-algo
+  (is (= :not-implemented
+         (preiistmmo/select-algo :quux))))

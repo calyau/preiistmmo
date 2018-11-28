@@ -1,4 +1,4 @@
-(ns preiistmmo.cli.primes
+(ns preiistmmo.cli.table
   (:require
     [clojure.string :as string]
     [clojure.tools.cli :as cli]
@@ -7,21 +7,23 @@
   (:gen-class))
 
 (def cli-opts
- (concat
-   [["-c" "--count INTEGER" "The number of primes to return"
-    :default 10
-    :parse-fn #(Integer/parseInt %)
-    :validate [int? "Must be an integer"]]]
-   common/cli-opts))
+  (concat
+    [["-c" "--columns INTEGER" "The number of primes to to use for columns"
+      :default 10
+      :parse-fn #(Integer/parseInt %)
+      :validate [int? "Must be an integer"]]
+     ["-r" "--rows INTEGER" "The number of primes to to use for rows"
+      :default 10
+      :parse-fn #(Integer/parseInt %)
+      :validate [int? "Must be an integer"]]]
+    common/cli-opts))
 
 (defn run
-  [{{:keys [count start algorithm]} :options}]
+  [{{:keys [columns rows start algorithm]} :options}]
   (let [algo (preiistmmo/select-algo (keyword algorithm))]
-    (println "\n"
-             (if (> start 2)
-               (preiistmmo/n-primes algo count start)
-               (preiistmmo/n-primes algo count))
-             "\n")))
+    (println)
+    (preiistmmo/print-prime-grid algo rows columns)
+    (println)))
 
 (defn -main
   [& args]

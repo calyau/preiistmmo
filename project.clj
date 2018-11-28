@@ -41,8 +41,10 @@
     :benchmarks {
       :main preiistmmo.bench
       :aot [preiistmmo.bench]}
-    :primes {
-      :main preiistmmo.cli.primes}}
+    :cli-primes {
+      :main preiistmmo.cli.primes}
+    :cli-table {
+      :main preiistmmo.cli.table}}
   :aliases {
     ;; Dev & Testing Aliases
     "repl" ["do"
@@ -74,4 +76,5 @@
       ["ubercompile"]
       ["uberjar"]]
     ;; CLI
-    "primes" ["with-profile" "+primes" "trampoline"]})
+    "primes" ["with-profile" "+cli-primes" "trampoline"]
+    "table" ["with-profile" "+cli-table" "trampoline"]})
