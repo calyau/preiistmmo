@@ -16,8 +16,9 @@
 
 * [Usage](#usage-)
   * [CLI](#cli-)
-    * From lein
+    * From the shell script
     * From the .jar file
+    * From lein
   * [API](#api-)
 * [Thoughts on Scaling](#thoughts-on-scaling-)
   * Algorithm implementation
@@ -38,12 +39,12 @@ There are two entry points for the CLI:
 * `table` - this demos a UI (terminal) utilizing the prime-number generator
 
 
-#### From `lein`
+#### From the shell script
 
 The following examples are for using the CLI to generate primes.
 
 ```
-$ lein preiistmmo run primes --help
+$ ./bin/preiistmmo primes --help
 ```
 ```
 Options:
@@ -57,7 +58,7 @@ Options:
 Default behaviour:
 
 ```
-$ lein preiistmmo run primes
+$ ./bin/preiistmmo primes
 ```
 ```
  (2 3 5 7 11 13 17 19 23 29)
@@ -66,7 +67,7 @@ $ lein preiistmmo run primes
 Getting more primes:
 
 ```
-$ lein preiistmmo run primes --count 20
+$ ./bin/preiistmmo primes --count 20
 ```
 ```
  (2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71)
@@ -75,7 +76,7 @@ $ lein preiistmmo run primes --count 20
 If you're using the default algorithm, you may also set the starting integer:
 
 ```
-$ lein preiistmmo run primes --start 100 --count 20
+$ ./bin/preiistmmo primes --start 100 --count 20
 ```
 ```
  (101 103 107 109 113 127 131 137 139 149 151 157 163 167 173 179 181 191 193 197)
@@ -86,7 +87,7 @@ tables (by default, these are multiplication tables; however addition, subtracti
 division, and modulus are also supported).
 
 ```
-$ lein preiistmmo run table --help
+$ ./bin/preiistmmo table --help
 ```
 ```
 Options:
@@ -102,7 +103,7 @@ Options:
 Default behaviour (a 10x10 grid):
 
 ```
-$ lein preiistmmo run table
+$ ./bin/preiistmmo table
 ```
 ```
 |  * |  2 |  3 |   5 |   7 |  11 |  13 |  17 |  19 |  23 |  29 |
@@ -119,7 +120,7 @@ $ lein preiistmmo run table
 | 29 | 58 | 87 | 145 | 203 | 319 | 377 | 493 | 551 | 667 | 841 |
 ```
 ```
-$ lein preiistmmo run table --columns 4 --rows 4
+$ ./bin/preiistmmo table --columns 4 --rows 4
 ```
 ```
 | * |  2 |  3 |  5 |  7 |
@@ -130,7 +131,7 @@ $ lein preiistmmo run table --columns 4 --rows 4
 | 7 | 14 | 21 | 35 | 49 |
 ```
 ```
-$ lein preiistmmo run table --rows 4
+$ ./bin/preiistmmo table --rows 4
 ```
 ```
 | * |  2 |  3 |  5 |  7 | 11 | 13 |  17 |  19 |  23 |  29 |
@@ -141,7 +142,7 @@ $ lein preiistmmo run table --rows 4
 | 7 | 14 | 21 | 35 | 49 | 77 | 91 | 119 | 133 | 161 | 203 |
 ```
 ```
-$ lein preiistmmo run table --columns 18 --rows 36 --operation %
+$ ./bin/preiistmmo table --columns 18 --rows 36 --operation %
 ```
 ```
 |   % | 2 | 3 | 5 | 7 | 11 | 13 | 17 | 19 | 23 | 29 | 31 | 37 | 41 | 43 | 47 | 53 | 59 | 61 |
@@ -215,6 +216,30 @@ or, to run the benchmarks:
 $ java -jar target/preiistmmo-0.2.0-SNAPSHOT-standalone.jar -m preiistmmo.cli.core \
        benchmarks
 ```
+
+
+#### From `lein`
+
+If, for whatever reason, you prefer running these from Lein, you can do that
+too :-) There are aliases setup in the `project.clj` file that utilize `lein trampoline`
+so that the JVM for lein is replaced by the one for preiistmmo, thus allowing preiistmmo
+to parse options and execute accordingly.
+
+The aliases support two ways of calling, depending upon your CLI specificity needs:
+
+```
+$ lein primes run
+$ lein primes run -h
+$ lein primes run --start 100 --count 20
+```
+or
+```
+$ lein preiistmmo run primes
+$ lein preiistmmo run primes -h
+$ lein preiistmmo run primes --start 100 --count 20
+```
+
+The same applies to `table` and `benchmarks` CLIs.
 
 
 ### API [&#x219F;](#contents)

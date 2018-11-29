@@ -1,0 +1,25 @@
+#!/bin/bash
+
+function DEBUG {
+  if [ ! -z "$DEBUG" ]; then
+    echo "$@"
+  fi
+}
+
+DEBUG args: $@
+
+DEFPROJ=$(cat project.clj | grep defproject)
+PROJ=$(echo "$DEFPROJ" | awk '{print $2}' | awk -F/ '{print $2}')
+VERSION=$(echo "$DEFPROJ" | awk '{print $3}' | tr -d \")
+JAR="target/${PROJ}-${VERSION}-standalone.jar"
+
+DEBUG defproj:  $DEFPROJ
+DEBUG proj: $PROJ
+DEBUG version: $VERSION
+DEBUG jarfile: $JAR
+
+if [ ! -f $JAR ]; then
+  lein uberjar
+fi
+
+java -jar $JAR -m preiistmmo.cli.core $@
