@@ -82,7 +82,7 @@ $ lein primes run --start 100 --count 20
 ```
 
 The following examples are for using the CLI to generate prime number arithmatic
-tables (by default, these are multiplication tables, but addition, subtraction,
+tables (by default, these are multiplication tables; however addition, subtraction,
 division, and modulus are also supported).
 
 ```
@@ -187,7 +187,7 @@ $ lein table run --columns 18 --rows 36 --operation %
 
 #### From the `.jar` file:
 
-This is the faster way to run the CLI; options and usage is identical to the
+This is the faster way to run the CLI; options and usage are identical to the
 above, but instead of using `lein primes run`, you will use the following:
 
 ```
