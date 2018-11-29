@@ -43,7 +43,7 @@ There are two entry points for the CLI:
 The following examples are for using the CLI to generate primes.
 
 ```
-$ lein primes run --help
+$ lein preiistmmo run primes --help
 ```
 ```
 Options:
@@ -57,7 +57,7 @@ Options:
 Default behaviour:
 
 ```
-$ lein primes run
+$ lein preiistmmo run primes
 ```
 ```
  (2 3 5 7 11 13 17 19 23 29)
@@ -66,7 +66,7 @@ $ lein primes run
 Getting more primes:
 
 ```
-$ lein primes run --count 20
+$ lein preiistmmo run primes --count 20
 ```
 ```
  (2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71)
@@ -75,7 +75,7 @@ $ lein primes run --count 20
 If you're using the default algorithm, you may also set the starting integer:
 
 ```
-$ lein primes run --start 100 --count 20
+$ lein preiistmmo run primes --start 100 --count 20
 ```
 ```
  (101 103 107 109 113 127 131 137 139 149 151 157 163 167 173 179 181 191 193 197)
@@ -86,7 +86,7 @@ tables (by default, these are multiplication tables; however addition, subtracti
 division, and modulus are also supported).
 
 ```
-$ lein table run --help
+$ lein preiistmmo run table --help
 ```
 ```
 Options:
@@ -102,7 +102,7 @@ Options:
 Default behaviour (a 10x10 grid):
 
 ```
-$ lein table run
+$ lein preiistmmo run table
 ```
 ```
 |    |  2 |  3 |   5 |   7 |  11 |  13 |  17 |  19 |  23 |  29 |
@@ -119,7 +119,7 @@ $ lein table run
 | 29 | 58 | 87 | 145 | 203 | 319 | 377 | 493 | 551 | 667 | 841 |
 ```
 ```
-$ lein table run --columns 4 --rows 4
+$ lein preiistmmo run table --columns 4 --rows 4
 ```
 ```
 |   |  2 |  3 |  5 |  7 |
@@ -130,7 +130,7 @@ $ lein table run --columns 4 --rows 4
 | 7 | 14 | 21 | 35 | 49 |
 ```
 ```
-$ lein table run --rows 4
+$ lein preiistmmo run table --rows 4
 ```
 ```
 |   |  2 |  3 |  5 |  7 | 11 | 13 |  17 |  19 |  23 |  29 |
@@ -141,7 +141,7 @@ $ lein table run --rows 4
 | 7 | 14 | 21 | 35 | 49 | 77 | 91 | 119 | 133 | 161 | 203 |
 ```
 ```
-$ lein table run --columns 18 --rows 36 --operation %
+$ lein preiistmmo run table --columns 18 --rows 36 --operation %
 ```
 ```
 |   % | 2 | 3 | 5 | 7 | 11 | 13 | 17 | 19 | 23 | 29 | 31 | 37 | 41 | 43 | 47 | 53 | 59 | 61 |
@@ -192,18 +192,28 @@ above, but instead of using `lein primes run`, you will use the following:
 
 ```
 $ lein uberjar
-$ java -jar target/preiistmmo-0.1.0-SNAPSHOT-standalone.jar -m preiistmmo.cli.primes
+$ java -jar target/preiistmmo-0.2.0-SNAPSHOT-standalone.jar -m preiistmmo.cli.core \
+       primes
 ```
 
 For example, to view the help:
 ```
-$ java -jar target/preiistmmo-0.1.0-SNAPSHOT-standalone.jar -m preiistmmo.cli.primes --help
+$ java -jar target/preiistmmo-0.2.0-SNAPSHOT-standalone.jar -m preiistmmo.cli.core \
+       primes --help
 ```
 
 or, for `table`:
 
 ```
-$ java -jar target/preiistmmo-0.1.0-SNAPSHOT-standalone.jar -m preiistmmo.cli.table --help
+$ java -jar target/preiistmmo-0.2.0-SNAPSHOT-standalone.jar -m preiistmmo.cli.core \
+       table --help
+```
+
+or, to run the benchmarks:
+
+```
+$ java -jar target/preiistmmo-0.2.0-SNAPSHOT-standalone.jar -m preiistmmo.cli.core \
+       benchmarks
 ```
 
 
