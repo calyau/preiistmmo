@@ -40,6 +40,8 @@
         :default (complement :system)}}
     :cli-benchmarks {
       :main preiistmmo.cli.bench}
+    :cli-preiistmmo {
+      :main preiistmmo.cli.core}
     :cli-primes {
       :main preiistmmo.cli.primes}
     :cli-table {
@@ -74,6 +76,7 @@
       ["ubercompile"]
       ["uberjar"]]
     ;; CLI
+    "preiistmmo" ["with-profile" "+cli-preiistmmo" "trampoline"]
     "primes" ["with-profile" "+cli-primes" "trampoline"]
     "table" ["with-profile" "+cli-table" "trampoline"]
     "benchmarks" ["with-profile" "+cli-benchmarks" "trampoline"]})

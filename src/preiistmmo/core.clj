@@ -10,8 +10,7 @@
     (clojure.lang Keyword)
     (preiistmmo.impl.divisors.lazy PrimeDivisorsTrial)
     (preiistmmo.impl.eratosthenes.lazy EratosthenesSieve)
-    (preiistmmo.impl.sundaram.simple SundaramSieve))
-  (:gen-class))
+    (preiistmmo.impl.sundaram.simple SundaramSieve)))
 
 (def operations common/operations)
 
