@@ -12,9 +12,16 @@
   ""
   []
   (let [divs (preiistmmo/select-algo :divisors)
+        apache (preiistmmo/select-algo :apache)
         eratos (preiistmmo/select-algo :eratosthenes)
         sund (preiistmmo/select-algo :sundaram)]
     (println "\nRunning n-primes for :divisors implementation ...")
+    (runit divs 10)
+    (runit divs 100)
+    (runit divs 1000)
+    (runit divs 10000)
+    (runit divs 100000)
+    (println "\nRunning n-primes for :apache implementation ...")
     (runit divs 10)
     (runit divs 100)
     (runit divs 1000)

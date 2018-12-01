@@ -11,6 +11,7 @@
     :name "Apache License, Version 2.0"
     :url "http://www.apache.org/licenses/LICENSE-2.0"}
   :dependencies [
+    [org.apache.commons/commons-math3 "3.6.1"]
     [org.clojure/clojure "1.10.0-RC2"]
     [org.clojure/tools.cli "0.4.1"]]
   :repl-options {

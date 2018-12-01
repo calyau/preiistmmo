@@ -51,7 +51,7 @@ Options:
 
   -c, --count INTEGER   10        The number of primes to return
   -s, --start INTEGER   2         The starting integer (only valid for the 'divisors' algorithm)
-  -a, --algorithm NAME  divisors  The prime number generating algorithm to use (one of ["sundaram" "eratosthenes" "divisors"])
+  -a, --algorithm NAME  divisors  The prime number generating algorithm to use (one of ["apache" "sundaram" "eratosthenes" "divisors"])
   -h, --help                      This usage text
 ```
 
@@ -96,7 +96,7 @@ Options:
   -r, --rows INTEGER      10        The number of primes to to use for rows
   -o, --operation SYMBOL  *         The arithmatic operation to perform (one of ["*" "%" "/" "-" "+"])
   -s, --start INTEGER     2         The starting integer (only valid for the 'divisors' algorithm)
-  -a, --algorithm NAME    divisors  The prime number generating algorithm to use (one of ["sundaram" "eratosthenes" "divisors"])
+  -a, --algorithm NAME    divisors  The prime number generating algorithm to use (one of ["apache" "sundaram" "eratosthenes" "divisors"])
   -h, --help                        This usage text
 ```
 
@@ -282,6 +282,17 @@ Sieve of Sundaram:
 
 ```
 
+Using `isPrime` static method from Apache Commons Math:
+
+```clj
+(def algo (preiistmmo/select-algo :apache))
+(preiistmmo/n-primes algo 29)
+```
+```
+(2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97 101 103 107 109)
+
+```
+
 Support has been added for grids (e.g., in termainal-based demos):
 
 ```clj
@@ -376,6 +387,13 @@ Running n-primes for :divisors implementation ...
 1000 primes: "Elapsed time: 8.307988 msecs"
 10000 primes: "Elapsed time: 233.71016 msecs"
 100000 primes: "Elapsed time: 6136.338203 msecs"
+
+Running n-primes for :apache implementation ...
+10 primes: "Elapsed time: 0.026569 msecs"
+100 primes: "Elapsed time: 0.277534 msecs"
+1000 primes: "Elapsed time: 6.589782 msecs"
+10000 primes: "Elapsed time: 190.079645 msecs"
+100000 primes: "Elapsed time: 6467.238386 msecs"
 
 Running n-primes for :eratosthenes implementation ...
 10 primes: "Elapsed time: 1.661216 msecs"

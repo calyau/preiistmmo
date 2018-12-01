@@ -2,12 +2,14 @@
   (:require
     [clojure.string :as string]
     [clojure.tools.cli :as cli]
+    [preiistmmo.impl.apache.math3 :as apache-math3]
     [preiistmmo.impl.common :as common]
     [preiistmmo.impl.divisors.lazy :as divisors-lazy]
     [preiistmmo.impl.eratosthenes.lazy :as eratosthenes-lazy]
     [preiistmmo.impl.sundaram.simple :as sundaram-simple])
   (:import
     (clojure.lang Keyword)
+    (preiistmmo.impl.apache.math3 ApachePrimeCheck)
     (preiistmmo.impl.divisors.lazy PrimeDivisorsTrial)
     (preiistmmo.impl.eratosthenes.lazy EratosthenesSieve)
     (preiistmmo.impl.sundaram.simple SundaramSieve)))
@@ -39,6 +41,10 @@
         PrimesAPI
         divisors-lazy/behaviour)
 
+(extend ApachePrimeCheck
+        PrimesAPI
+        apache-math3/behaviour)
+
 (extend EratosthenesSieve
         PrimesAPI
         eratosthenes-lazy/behaviour)
@@ -49,6 +55,7 @@
 
 (def algos
   {:divisors divisors-lazy/create
+   :apache apache-math3/create
    :eratosthenes eratosthenes-lazy/create
    :sundaram sundaram-simple/create})
 
