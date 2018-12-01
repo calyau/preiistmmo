@@ -19,15 +19,19 @@
     "Find the first `n` prime numbers. Optionally, the starting integer may be
     supplied, if the algorithm supports it.")
   (prime-grid [this i] [this i j] [this i j op]
-    "Produce a data structure representing prime numbers multiplied by each
-    other. If just `i` is provided, the results are in an `i` x `i` square
-    matrix; if `j` is also provided, the results are in an `i` x `j` matrix.")
+    "Produce a data structure representing prime numbers where a binary
+    arithmatic operation has been performed on paired primes (by default, the
+    operation is multiplication). If just `i` is provided, the results are in
+    an `i` x `i` square grid; if `j` is also provided, the results are in an
+    `i` x `j` grid. If `op` is provided, the default arithmatic operation will
+    be overridden by what the user provides.")
   (print-prime-grid [this i] [this i j] [this i j op]
     "Produce tabular data printed to stdout representing prime numbers
-    multiplied by each other. If just `i` is provided, the results table has
-    equal comumns and rows; if `j` is also provided, the results table will
-    have `i` columns and `j` rows. If `op` is provided, the default arithmatic
-    operation will be overridden by what the user provides."))
+    where a binary arithmatic operation has been performed on paired primes (by
+    default, the operation is multiplication). If just `i` is provided, the
+    results are in an `i` x `i` square grid; if `j` is also provided, the
+    results are in an `i` x `j` grid. If `op` is provided, the default
+    arithmatic operation will be overridden by what the user provides."))
 
 (extend PrimeDivisorsTrial
         PrimesAPI
