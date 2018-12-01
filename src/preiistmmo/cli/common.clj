@@ -1,7 +1,8 @@
 (ns preiistmmo.cli.common
   (:require
     [clojure.string :as string]
-    [preiistmmo.core :as preiistmmo]))
+    [preiistmmo.core :as preiistmmo]
+    [preiistmmo.impl.common :as common]))
 
 (defn help
   [parsed-opts]
@@ -28,7 +29,7 @@
 (def cli-opts
   [["-s" "--start INTEGER" (str "The starting integer (only valid for the "
                         "'divisors' algorithm)")
-    :default 2
+    :default common/default-start
     :parse-fn #(Integer/parseInt %)
     :validate [int? "Must be an integer"]]
    ["-a" "--algorithm NAME" (format (str "The prime number generating "

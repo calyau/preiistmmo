@@ -18,19 +18,21 @@
   (n-primes [this n] [this n start]
     "Find the first `n` prime numbers. Optionally, the starting integer may be
     supplied, if the algorithm supports it.")
-  (prime-grid [this i] [this i j] [this i j op]
+  (prime-grid [this i] [this i j] [this i j start] [this i j start op]
     "Produce a data structure representing prime numbers where a binary
     arithmatic operation has been performed on paired primes (by default, the
     operation is multiplication). If just `i` is provided, the results are in
     an `i` x `i` square grid; if `j` is also provided, the results are in an
-    `i` x `j` grid. If `op` is provided, the default arithmatic operation will
-    be overridden by what the user provides.")
-  (print-prime-grid [this i] [this i j] [this i j op]
+    `i` x `j` grid. Optionally, the starting integer may be supplied, if the
+    algorithm supports it. If `op` is provided, the default arithmatic
+    operation will be overridden by what the user provides.")
+  (print-prime-grid [this i] [this i j] [this i j start] [this i j start op]
     "Produce tabular data printed to stdout representing prime numbers
     where a binary arithmatic operation has been performed on paired primes (by
     default, the operation is multiplication). If just `i` is provided, the
     results are in an `i` x `i` square grid; if `j` is also provided, the
-    results are in an `i` x `j` grid. If `op` is provided, the default
+    results are in an `i` x `j` grid. Optionally, the starting integer may be
+    supplied, if the algorithm supports it. If `op` is provided, the default
     arithmatic operation will be overridden by what the user provides."))
 
 (extend PrimeDivisorsTrial

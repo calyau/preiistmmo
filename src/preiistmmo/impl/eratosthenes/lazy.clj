@@ -31,24 +31,30 @@
 (defn n-primes
   "Use the implementation of the Sieve of Eratosthenes to get the first `n`
   prime numbers."
-  [this prime-count]
-  (take prime-count (primes-seq)))
+  ([this prime-count]
+    (take prime-count (primes-seq)))
+  ([this prime-count _start]
+    (n-primes this prime-count)))
 
 (defn prime-grid
   ([this i-max]
     (prime-grid this i-max i-max))
   ([this i-max j-max]
-    (prime-grid this i-max i-max common/default-operation))
-  ([this i-max j-max op]
-    (common/prime-grid this n-primes i-max j-max op)))
+    (prime-grid this i-max i-max common/default-start))
+  ([this i-max j-max start]
+    (prime-grid this i-max i-max start common/default-operation))
+  ([this i-max j-max start op]
+    (common/prime-grid this n-primes i-max j-max start op)))
 
 (defn print-prime-grid
   ([this i-max]
     (print-prime-grid this i-max i-max))
   ([this i-max j-max]
-    (print-prime-grid this i-max i-max common/default-operation))
-  ([this i-max j-max op]
-    (common/print-prime-grid this n-primes i-max j-max op)))
+    (print-prime-grid this i-max i-max common/default-start))
+  ([this i-max j-max start]
+    (print-prime-grid this i-max i-max start common/default-operation))
+  ([this i-max j-max start op]
+    (common/print-prime-grid this n-primes i-max j-max start op)))
 
 (def behaviour {
   :n-primes n-primes

@@ -29,7 +29,7 @@
   [{{:keys [columns rows operation start algorithm]} :options}]
   (let [algo (preiistmmo/select-algo (keyword algorithm))]
     (println)
-    (preiistmmo/print-prime-grid algo rows columns operation)
+    (preiistmmo/print-prime-grid algo rows columns start operation)
     (println)))
 
 (defn -main
